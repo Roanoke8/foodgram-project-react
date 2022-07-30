@@ -1,13 +1,12 @@
 import os
 from csv import DictReader
-from venv import create
 
 from django.core.management import BaseCommand
 from recipe.models import Ingridients
 
 
 class Command(BaseCommand):
-    """Загрузка данных в таблицу Category.
+    """Загрузка данных в таблицу Ingridients.
     Можно указать путь к csv-файлу. Если путь не указан,
     загрузка выполняется из DEFAULT_FILE_PATH.
     """
@@ -17,7 +16,7 @@ class Command(BaseCommand):
         'ingredients.csv'
     )
 
-    help = 'Загружает данные из csv-файла в таблицу Category.'
+    help = 'Загружает данные из csv-файла в таблицу Ingridients.'
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -34,14 +33,6 @@ class Command(BaseCommand):
                     title=row['name'],
                     units=row['units']
                 )
-
-            # for row in reader:
-                # print(row['id'], row['name'], row['units'])
-            #     _, created = Ingridients.objects.create(
-            #         # id=1,
-            #         title='name',
-            #         units='asd',
-            #     )
         self.stdout.write(
             self.style.SUCCESS(
                 f'Данные из {file_path} успешно загружены.'
