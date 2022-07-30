@@ -11,9 +11,8 @@ class Units(models.Model):
         'Единицы измерения',
         max_length=128
     )
-
-    class Meta:
-        unique = ['name']
+    def __str__(self):
+        return f'{self.title}'
 
 
 class Tag(models.Model):
@@ -32,17 +31,13 @@ class Tag(models.Model):
 
 
 class Ingridients(models.Model):
-    pass
     title = models.CharField(
         'Название ингридиента',
         max_length=256
     )
-    total = models.C
     units = models.ForeignKey(
         Units,
-        on_delete=models.SET_NULL,
-        blank=False,
-        null=False,
+        on_delete=models.CASCADE,
         related_name='ingridients',
     )
     amount = models.PositiveSmallIntegerField(
@@ -71,6 +66,7 @@ class Follow(models.Model):
     def __str__(self):
         return self.author.username
 
+
 class Recipe(models.Model):
     author = models.ForeignKey(
         User,
@@ -96,7 +92,8 @@ class Recipe(models.Model):
     )
     ingredients = models.ManyToManyField(
         Ingridients,
-        through='RecipeIngredient',
+        related_name='RecipeIngredient',
+        verbose_name='Ингридиенты'
     )
     tags = models.ManyToManyField(
         Tag,
@@ -120,7 +117,6 @@ class FavoriteRecipe(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
-        null=True,
         related_name='favorite_recipe',
     )
     recipe = models.ManyToManyField(
