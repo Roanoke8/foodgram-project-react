@@ -35,10 +35,9 @@ class Ingridients(models.Model):
         'Название ингридиента',
         max_length=256
     )
-    units = models.ForeignKey(
-        Units,
-        on_delete=models.CASCADE,
-        related_name='ingridients',
+    units = models.CharField(
+        'мера измерения',
+        max_length=256
     )
     amount = models.PositiveSmallIntegerField(
         default=1,
