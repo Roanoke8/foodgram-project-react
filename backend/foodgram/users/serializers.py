@@ -7,7 +7,7 @@ User = get_user_model()
 
 
 class UserListSerialisers(serializers.ModelSerializer):
-    is_subscribed = serializers.BooleanField(read_only=True)
+    # is_subscribed = serializers.BooleanField(read_only=True)
 
     class Meta:
         fields = (
@@ -16,7 +16,7 @@ class UserListSerialisers(serializers.ModelSerializer):
             'username',
             'first_name',
             'last_name',
-            'is_subscribed',
+            # 'is_subscribed',
             'password'
         )
         model = User
@@ -31,7 +31,7 @@ class UserDetailSerialisers(serializers.ModelSerializer):
             'username',
             'first_name',
             'last_name',
-            'is_subscribed',
+            # 'is_subscribed',
             'password'
         )
         model = User

@@ -11,6 +11,7 @@ class Units(models.Model):
         'Единицы измерения',
         max_length=128
     )
+
     def __str__(self):
         return f'{self.title}'
 
@@ -73,7 +74,7 @@ class Recipe(models.Model):
         related_name='recipe',
         verbose_name='Автор',
     )
-    title = models.CharField(
+    name = models.CharField(
         'Название рецепта',
         max_length=255,
     )
@@ -104,14 +105,15 @@ class Recipe(models.Model):
             validators.MinValueValidator(
                 1,
                 message='Мин. время приготовления 1 минута'
-            ), 
+            ),
         ]
     )
     pub_date = models.DateTimeField(
         'Дата публикации',
         auto_now_add=True,
     )
-    
+
+
 class FavoriteRecipe(models.Model):
     user = models.OneToOneField(
         User,
@@ -136,5 +138,6 @@ class Cart(models.Model):
         related_name='cart',
 
     )
+
     class Meta:
         unique_together = ['user', 'recipe']
