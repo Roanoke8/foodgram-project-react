@@ -1,6 +1,6 @@
-from api.views import (SubcribeViewset, FavoriteViewSet,
-                       AddDeleteShoppingCart, TokenViewSet, IngredientsViewSet,
-                       RecipesViewSet, TagsViewSet, UsersViewSet, set_password)
+from api.views import (AddDeleteShoppingCart, FavoriteViewSet,
+                       IngredientsViewSet, RecipesViewSet, SubcribeViewset,
+                       TagsViewSet, TokenViewSet, UsersViewSet, set_password)
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 

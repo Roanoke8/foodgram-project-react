@@ -23,11 +23,11 @@ from rest_framework.permissions import (SAFE_METHODS, AllowAny,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 
-from .serializers import (IngredientSerializer, RecipeReadSerializer,
-                          RecipeWriteSerializer, SubscribeRecipeSerializer,
-                          SubscribeSerializer, TagSerializer, TokenSerializer,
-                          CreateUserSerializer, ListUserSerializer,
-                          PasswordSerializer)
+from .serializers import (CreateUserSerializer, IngredientSerializer,
+                          ListUserSerializer, PasswordSerializer,
+                          RecipeReadSerializer, RecipeWriteSerializer,
+                          SubscribeRecipeSerializer, SubscribeSerializer,
+                          TagSerializer, TokenSerializer)
 
 User = get_user_model()
 FILENAME = 'shoppingcart.pdf'
