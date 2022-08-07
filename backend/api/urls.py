@@ -8,10 +8,10 @@ from api.views import (AddDeleteShoppingCart, FavoriteViewSet,
 app_name = 'api'
 
 router = DefaultRouter()
-router.register('tags', TagsViewSet, basename='tags')
 router.register('users', UsersViewSet, basename='users')
-router.register('ingredients', IngredientsViewSet, basename='ingredients')
+router.register('tags', TagsViewSet, basename='tags')
 router.register('recipes', RecipesViewSet, basename='recipes')
+router.register('ingredients', IngredientsViewSet, basename='ingredients')
 
 
 urlpatterns = [
