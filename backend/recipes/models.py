@@ -171,13 +171,10 @@ class FavoriteRecipe(models.Model):
         return f'Пользователь {self.user} добавил {list_} в избранные.'
 
     @receiver(post_save, sender=User)
-    def create_favorite_recipe(
-        self,
-        sender,
-        instance,
-        created,
-        **kwargs
-    ):
+    def create_favorite_recipe(sender,
+                               instance,
+                               created,
+                               **kwargs):
         if created:
             return FavoriteRecipe.objects.create(user=instance)
 
