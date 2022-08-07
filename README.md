@@ -4,6 +4,11 @@
 
 ![foodgram-project-react tests](https://github.com/antonysan/foodgram-project-react/actions/workflows/foodgram_workflow.yaml/badge.svg)
 
+## Пример проекта доступен по 
+http://84.201.165.253/
+login: test@test.ru
+pass: testtest
+
 ## <a name="tech">Технологии</a>
 
 - Python 3.X
