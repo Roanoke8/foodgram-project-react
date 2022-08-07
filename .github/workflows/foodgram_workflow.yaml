@@ -46,7 +46,7 @@ jobs:
         with:
           context: frontend/
           push: true
-          tags: antonysan/foodgram:frontend
+          tags: antonysan/foodgram-frontend:latest
 
   deploy:
     runs-on: ubuntu-latest
