@@ -26,5 +26,6 @@
   - ```docker-compose exec backend python manage.py migrate```
   - ```docker-compose exec backend python manage.py createsuperuser```
   - ```docker-compose exec backend python manage.py collectstatic --no-input```
+  - ```docker-compose exec backend python manage.py import```
 
 Проект будет доступен по адресу <http://127.0.0.1/admin/>
