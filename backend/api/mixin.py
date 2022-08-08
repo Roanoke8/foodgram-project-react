@@ -2,6 +2,7 @@ class SubscribeMixin:
 
     def get_is_subscribed(self, obj):
         user = self.context['request'].user
-        if not user.is_authenticated:
-            return False
-        return user.follower.filter(author=obj).exists()
+        return (
+            user.is_authenticated
+            and user.follower.filter(author=obj).exists()
+        )
