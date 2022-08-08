@@ -1,6 +1,5 @@
 import django_filters as filters
 from django.core.exceptions import ValidationError
-
 from recipes.models import Ingredient, Recipe
 from users.models import User
 
@@ -53,9 +52,9 @@ class RecipeFilter(filters.FilterSet):
 
     class Meta:
         model = Recipe
-        fields = [
+        fields = (
             'is_favorited',
             'is_in_shopping_cart',
             'author',
             'tags',
-        ]
+        )
