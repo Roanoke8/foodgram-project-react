@@ -124,3 +124,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MESSAGE_ERROR = 'Неверный логин или пароль'
+
+FILENAME = 'shoppingcart.pdf'
