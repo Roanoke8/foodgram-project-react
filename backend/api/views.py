@@ -222,7 +222,7 @@ class RecipesViewSet(viewsets.ModelViewSet):
         buffer = io.BytesIO()
         page = canvas.Canvas(buffer)
         pdfmetrics.registerFont(
-            TTFont('DejaVuSans', 'DejaVuSans.ttf', 'UTF-8')
+            TTFont('Arial', 'arial.ttf', 'UTF-8')
         )
         x_position, y_position = 50, 800
         shopping_cart = (
@@ -234,8 +234,9 @@ class RecipesViewSet(viewsets.ModelViewSet):
         page.setFont('Arial', 14)
         if shopping_cart:
             indent = 20
-            page.drawString(x_position, y_position, 'Cписок покупок:')
+            page.drawString(x_position, y_position, 'Cписок покупок!!!:')
             for index, recipe in enumerate(shopping_cart, start=1):
+                print(index)
                 page.drawString(
                     x_position, y_position - indent,
                     f'{index}. {recipe["ingredients__name"]} - '
@@ -249,7 +250,7 @@ class RecipesViewSet(viewsets.ModelViewSet):
             buffer.seek(0)
             return FileResponse(
                 buffer, as_attachment=True, filename=FILENAME)
-        page.setFont('DejaVuSans', 24)
+        page.setFont('Arial', 24)
         page.drawString(
             x_position,
             y_position,
