@@ -221,7 +221,9 @@ class RecipesViewSet(viewsets.ModelViewSet):
 
         buffer = io.BytesIO()
         page = canvas.Canvas(buffer)
-        pdfmetrics.registerFont((TTFont('DejaVuSans', 'DejaVuSans.ttf', 'UTF-8')))
+        pdfmetrics.registerFont(
+            TTFont('DejaVuSans', 'DejaVuSans.ttf', 'UTF-8')
+        )
         x_position, y_position = 50, 800
         shopping_cart = (
             request.user.shopping_cart.recipe.
